@@ -1,0 +1,14 @@
+<launch>
+
+  <param name="/use_sim_time" value="true"/>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="bl_laser" args="0 0 0 0 0 0.707 0.707 base_link laser" />
+ 
+  <!-- Gmapping -->
+  <include file="$(find project)/launch/gmapping.launch.xml"/>
+
+  <!-- Visualisation -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find project)/config/configMAPPING.rviz"/>
+
+</launch>
+
